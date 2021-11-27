@@ -10,54 +10,90 @@
 </head>
 
 <body>
-    <h1>Tic-Tac-Toe</h1>
-    <div id="game-board" class="game-board">
-        <div id="game-container" class="game-container">
-            <div id="row1" class="game-row">
-                <div id="c00" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c01" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c02" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+    <main>
+        <aside>
+            <div id="player1" class="player1-data">
+                <div>Player 1</div>
             </div>
-            <div id="row2" class="game-row">
-                <div id="c10" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c11" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c12" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-            </div>
-            <div id="row3" class="game-row">
-                <div id="c20" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c21" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-                <div id="c22" class="game-cell">
-                    <div class="game-element">
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div id="player1score" class="player1-score">
+                <div>Score</div>
 
-    </div>
+            </div>
+
+        </aside>
+        <section>
+            <div id="game-board" class="gameboard">
+                <div id="game-container" class="gamecontainer">
+                    <div id="row1" class="game-row">
+                        <div id="c00" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c01" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c02" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="row2" class="game-row">
+                        <div id="c10" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c11" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c12" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="row3" class="game-row">
+                        <div id="c20" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c21" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                        <div id="c22" class="game-cell">
+                            <div class="game-element">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="game-status" class="gamestatus">Game Status</div>
+            <div class="buttons">
+                <div class='reset'>
+                    <button type='submit'>Reset Game</button>
+                </div>
+                <div class='restart'>
+                    <button type='submit'>Restart Game</button>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <div id="player2" class="player2-data">
+                <div>Player 2</div>
+            </div>
+            <div id="player2score" class="player2-score">
+                <div>Score</div>
+
+            </div>
+
+        </aside>
+    </main>
+    <footer>By Ruchi Jain</footer>
 
     <script src="script.js"></script>
 </body>

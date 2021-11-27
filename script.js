@@ -12,9 +12,7 @@ function onGameCellClick(e) {
 }
 
 function init() {
-
     boardIntialization();
 }
-
 
 window.addEventListener('load', init);
