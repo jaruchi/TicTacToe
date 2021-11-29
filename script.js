@@ -54,6 +54,8 @@ class GameBoard {
         this.scoreOElement = document.querySelector("#scoreO");
         this.scoreOElement.innerText = this.playersScore.playerOScore;
 
+        this.audio = document.querySelector("#sound");
+
 
 
         //this.gameCells.forEach(gameCell => gameCell.addEventListener("click",this.onGameCellClick));/// it passes the callback with particular cell data
@@ -72,13 +74,12 @@ class GameBoard {
         if (this.gameIsStopped) {
             return;
         }
-        //console.log(e.currentTarget,this)
         let elem = e.currentTarget;
         let gameElement = elem.firstElementChild;
         
         let elementId = elem.id;
         if (gameElement.innerText === '') {
-            //elem.innerText = this.currentTurn;
+            this.audio.play();
             gameElement.innerText = this.currentTurn;
             this.updateGameBoard(elementId);
             this.setGameStatus();
@@ -169,7 +170,6 @@ class GameBoard {
     }
 
     updateGameStatus(statusState) {
-        //const gameStatusElement = document.querySelector("#game-status");
         this.gameStatusElement.innerText = gameStatus[statusState];
     }
 
@@ -183,7 +183,6 @@ class GameBoard {
 
     stopGame() {
         this.gameIsStopped = true;
-        //console.log("game stopped");
     }
 
     onResetClick(e) {

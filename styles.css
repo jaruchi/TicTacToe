@@ -15,6 +15,7 @@ h1 {
     font-size: 50px;
     color: #d268a8;
     margin:100px;
+    font-family: cursive;
 }
 
 main {
@@ -48,6 +49,8 @@ aside {
     display: flex;
     flex-direction: column;
     border-radius: 12px;
+    font-family: cursive;
+
 }
 .buttons {
     display: flex;
@@ -93,19 +96,18 @@ aside {
     min-width:50px;
     min-height:50px;
     font-size: 40px;
-}
+    color: #d268a8;
 
+}
 
  .game-cell:hover .game-element{
     background-color:rgb(192, 196, 255);
 } 
 
-#player1, #player2, #player1score, #player2score, #game-status{
+#player1, #player2, #player1score, #player2score, #game-status, .button{
     color: #d268a8;
-}
+    font-family: cursive;
 
-.button {
-    color: #d268a8;
 }
 
 footer{
