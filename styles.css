@@ -6,7 +6,6 @@ body{
 }
 
 header {
-    color: #d268a8;
     text-align: center;
     padding: 15px;
   }
@@ -41,7 +40,7 @@ aside {
     display: flex;
     flex-direction: column;
     margin: 15px;
-    border: 35px solid rgb(192, 196, 255);
+    /*border: 35px solid rgb(192, 196, 255);*/
     align-content: space-between;
 }
 
@@ -98,8 +97,16 @@ aside {
 
 
  .game-cell:hover .game-element{
-    background-color:rgb(187, 101, 101);
+    background-color:rgb(192, 196, 255);
 } 
+
+#player1, #player2, #player1score, #player2score, #game-status{
+    color: #d268a8;
+}
+
+.button {
+    color: #d268a8;
+}
 
 footer{
     text-align: right;
