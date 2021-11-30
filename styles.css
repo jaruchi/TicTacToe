@@ -7,49 +7,50 @@ body{
 
 header {
     text-align: center;
-    padding: 15px;
   }
 
 h1 {
     text-align: center;
     font-size: 50px;
     color: #d268a8;
-    margin:100px;
     font-family: cursive;
 }
 
 main {
-    display:flex;
-    flex-grow: 1;
+    display:flex; 
 }
 
 section, aside {
     border-radius: 12px;
     text-align: center;
     margin: 5px;
-    font-size:30px;
+    font-size:25px;
   }
 
   section {
     flex-grow: 1;
     display:flex;
     flex-direction:column;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 
 aside {
     display: flex;
     flex-direction: column;
     margin: 15px;
-    align-content: space-between;
-    justify-content: space-between;
+    justify-content:space-evenly;
+    flex:.5;
 }
 
 .gamestatus {
     display: flex;
+    flex:1;
     flex-direction: column;
     border-radius: 12px;
     font-family: cursive;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
 
 }
 .buttons {
@@ -100,13 +101,26 @@ aside {
 
 }
 
- .game-cell:hover .game-element{
+/*.game-cell:hover .game-element{
+    background-color:rgb(192, 196, 255);
+} */
+
+.game-cell:hover>.game-element{
     background-color:rgb(192, 196, 255);
 } 
 
-#player1, #player2, #player1score, #player2score, #game-status, .button, #game-history{
+#player1, #player2, #player1score, #player2score, #game-status, .button, #draw{
     color: #d268a8;
     font-family: cursive;
+}
+
+#game-history {
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    color: #d268a8;
+    font-family: cursive;
+    align-items: flex-start;
 }
 
 .button {
@@ -115,10 +129,16 @@ aside {
 
 #history {
     text-align: left;
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 footer{
-    text-align: right;
     padding: 15px;
     color: #d268a8;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }

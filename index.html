@@ -17,32 +17,33 @@
     <header>
         <h1>Tic-Tac-Toe</h1>
     </header>
-    <main>
-        <aside>
-            <div id="player1" class="player1-data">
-                <div>Player 1
-                    <div id="playerX">(X)</div>
+            <div class="buttons">
+                <div id="reset" class="reset">
+                    <button type='submit' class="button">Reset Game</button>
                 </div>
-                <div id="player1score" class="player1-score">
-                    <div>Score
-                        <div id="scoreX"></div>
-                    </div>
-    
+                <div id="restart"  class="restart">
+                    <button type='submit' class="button">Restart Game</button>
                 </div>
             </div>
-            <div id="player2" class="player2-data">
-                <div>Player 2
-                    <div id="playerO">(0)</div>
-                </div>
-                <div id="player2score" class="player2-score">
-                    <div>Score
-                        <div id="scoreO"></div>
-                    </div>
-                </div>
+    <div id="game-status" class="gamestatus"></div>
+
+    <main>
+        <aside>
+            <div id="player1" class="player1-data">Player 1 (X)
+                <div id="player1score" class="player1-score">Score<div id="scoreX"></div></div>
+            </div>
+
+            <div id="draw" class="draw-data">Draw
+                <div id="count" class="draw-count"></div>
+            </div>
+
+            <div id="player2" class="player2-data">Player 2 (O)
+                <div id="player2score" class="player2-score">Score<div id="scoreO"></div></div>
             </div>
         </aside>
         <section>
             <div id="game-board" class="gameboard">
+                
                 <div id="game-container" class="gamecontainer">
                     <div id="row1" class="game-row">
                         <div id="c00" class="game-cell">
@@ -89,15 +90,7 @@
                 </div>
 
             </div>
-            <div id="game-status" class="gamestatus"></div>
-            <div class="buttons">
-                <div id="reset" class="reset">
-                    <button type='submit' class="button">Reset Game</button>
-                </div>
-                <div id="restart"  class="restart">
-                    <button type='submit' class="button">Restart Game</button>
-                </div>
-            </div>
+            
         </section>
         <aside>
             <div id="game-history" class="gamehistory">

@@ -1,12 +1,11 @@
 # TicTacToe
+Tic-tac-toe, or Xs and Os is a paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+
+[GitHub Repo](https://github.com/jaruchi/TicTacToe)
+[TicTacToe Game](https://jaruchi.github.io/TicTacToe/)
 
 ### Technologies Used
-
 Tic Tac Toe game using HTML, CSS and JavaScript.
-
-### Description
-
-Tic-tac-toe, or Xs and Os is a paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
 ### Step I: Initial Game Board design
 
@@ -92,7 +91,6 @@ Iterate the const array defined for 8 winning conditions
   set currentTurn to X
 
 ```
-
 ### User Stories Covered
 
 - As a user, I should be able to start a new tic tac toe game
@@ -102,5 +100,14 @@ Iterate the const array defined for 8 winning conditions
 - As a user, I should be shown a message when I win, lose or tie
 - As a user, I should not be able to continue playing once I win, lose, or tie
 - As a user, I should be able to play the game again without refreshing the page
-- added different audio for winning or tie condition
-- added game history to keep track of different games
+### Extra Features
+-  different audio for winning or tie conditions
+-  game history to keep track of different games
+
+### List of future iterations
+- Allow players to customize their tokens (X, O, name, picture, etc)
+- Use localStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
+- Create an AI opponent: teach JavaScript to play an unbeatable game against you
+- Make your site fully responsive so that it is playable from a mobile phone
+- Get inventive with your styling e.g. use hover effects or animations
+
