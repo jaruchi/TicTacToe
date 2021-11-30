@@ -10,9 +10,10 @@
 </head>
 
 <body>
-    <audio id="sound">   
-        <source src="docs/Click.mp3" />
-    </audio>
+        <audio id="soundClick" src="docs/Click.mp3" ></audio>
+        <audio id="soundWin" src="docs/win.mp3" ></audio>
+        <audio id="soundDraw" src="docs/draw.mp3" ></audio>
+
     <header>
         <h1>Tic-Tac-Toe</h1>
     </header>
@@ -22,12 +23,22 @@
                 <div>Player 1
                     <div id="playerX">(X)</div>
                 </div>
-            </div>
-            <div id="player1score" class="player1-score">
-                <div>Score
-                    <div id="scoreX"></div>
+                <div id="player1score" class="player1-score">
+                    <div>Score
+                        <div id="scoreX"></div>
+                    </div>
+    
                 </div>
-
+            </div>
+            <div id="player2" class="player2-data">
+                <div>Player 2
+                    <div id="playerO">(0)</div>
+                </div>
+                <div id="player2score" class="player2-score">
+                    <div>Score
+                        <div id="scoreO"></div>
+                    </div>
+                </div>
             </div>
         </aside>
         <section>
@@ -89,19 +100,12 @@
             </div>
         </section>
         <aside>
-            <div id="player2" class="player2-data">
-                <div>Player 2
-                    <div id="playerO">(0)</div>
+            <div id="game-history" class="gamehistory">
+                <div>Game History
+                    <ul id="history">
+                    </ul>
                 </div>
             </div>
-            <div id="player2score" class="player2-score">
-                <div>Score
-                    <div id="scoreO"></div>
-
-                </div>
-
-            </div>
-
         </aside>
     </main>
     <footer>By Ruchi Jain</footer>
