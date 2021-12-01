@@ -1,8 +1,10 @@
 # TicTacToe
 Tic-tac-toe, or Xs and Os is a paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
-[GitHub Repo](https://github.com/jaruchi/TicTacToe)
-[TicTacToe Game](https://jaruchi.github.io/TicTacToe/)
+- [GitHub Repo](https://github.com/jaruchi/TicTacToe)
+
+
+- [TicTacToe Game Page](https://jaruchi.github.io/TicTacToe/)
 
 ### Technologies Used
 Tic Tac Toe game using HTML, CSS and JavaScript.
@@ -31,8 +33,7 @@ Make the game board using HTML and CSS
 Initialize all the event handlers for the cell clicks
 On first cell click update its value with X as its the statring turn:
    Update the game board
-   Set the game status
-   Switch turns between X and O
+   UpdateGameBoardForWinOrDrawCondition
 ```
 
 ### Pseudocode For UpdateGameBoard
@@ -43,7 +44,7 @@ updateGameBoard:
       Insert the X or O on the specified location
 ```
 
-### Pseudocode For setGameStatus
+### Pseudocode For updateGameBoardForWinOrDrawCondition
 
 ```
   setGameStatus:
@@ -103,11 +104,10 @@ Iterate the const array defined for 8 winning conditions
 ### Extra Features
 -  different audio for winning or tie conditions
 -  game history to keep track of different games
+-  used hover effect
 
 ### List of future iterations
 - Allow players to customize their tokens (X, O, name, picture, etc)
 - Use localStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 - Create an AI opponent: teach JavaScript to play an unbeatable game against you
 - Make your site fully responsive so that it is playable from a mobile phone
-- Get inventive with your styling e.g. use hover effects or animations
-

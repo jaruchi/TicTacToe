@@ -29,7 +29,6 @@ const gameStatus = {
 // call to initialize cells on gameBoard
 class GameBoard {
     constructor() {
-
         this.initializeGameData(); // to initialize the game data
         this.setUp(); // to set up the game and different elements from HTML
     }
@@ -40,16 +39,7 @@ class GameBoard {
     // token to check when to stop game
     initializeGameData() {
 
-        //to capture all the cells data
-        this.gameBoard = [
-            ['c00', 'c01', 'c02'],
-            ['c10', 'c11', 'c12'],
-            ['c20', 'c21', 'c22']
-        ];
-
-        // game always starts from X turn
-        this.currentTurn = X;
-
+        this.resetGameData();
         // Setting Starting score for both players as 0
         this.playersScore = {
             playerXScore: 0,
@@ -60,6 +50,19 @@ class GameBoard {
         // to track every game
         this.gameHistory = [];
 
+
+    }
+
+    resetGameData() {
+        //to capture all the cells data
+        this.gameBoard = [
+            ['c00', 'c01', 'c02'],
+            ['c10', 'c11', 'c12'],
+            ['c20', 'c21', 'c22']
+        ];
+
+        // game always starts from X turn
+        this.currentTurn = X;
         // token to check when to stop the game after a certain condition is met
         this.gameIsStopped = false;
     }
@@ -70,16 +73,12 @@ class GameBoard {
     setUp() {
         this.captureHTMLElements();
         this.setInitialCounters();
-
-        //this.gameCells.forEach(gameCell => gameCell.addEventListener("click",this.onGameCellClick));/// it passes the callback with particular cell data
-        this.gameCells.forEach(gameCell => gameCell.addEventListener("click", e => this.onGameCellClick(e)));/// (event)callback function don't support functionality of this keyword
-
-        this.restartButton.addEventListener("click", () => this.onRestartGame());
-        this.resetButton.addEventListener("click", () => this.onResetGame());
+        this.resetHistory();
     }
 
     //captures and bind HTML elements to game elements
     captureHTMLElements() {
+        this.gameBoardDiv = document.querySelector("#game-container");
         this.gameCells = document.querySelectorAll(".game-cell");
         this.gameElements = document.querySelectorAll(".game-element");
         this.gameStatusElement = document.querySelector("#game-status");
@@ -92,8 +91,18 @@ class GameBoard {
         this.gameHistoryElement = document.querySelector("#history");
         this.restartButton = document.querySelector("#restart");
         this.resetButton = document.querySelector("#reset");
+
+        /// it passes the callback with particular cell data
+        //this.gameCells.forEach(gameCell => gameCell.addEventListener("click",this.onGameCellClick));
+
+        /// (event)callback function don't support functionality of this keyword
+        this.gameCells.forEach(gameCell => gameCell.addEventListener("click", e => this.onGameCellClick(e)));
+
+        this.restartButton.addEventListener("click", () => this.onRestartGame());
+        this.resetButton.addEventListener("click", () => this.onResetGame());
     }
 
+    // UI Initialization as per Data
     setInitialCounters() {
         //Starting with 0 values for X, O & draw 
         this.scoreXElement.innerText = this.playersScore.playerXScore;
@@ -102,10 +111,14 @@ class GameBoard {
 
         //setting game elements content to empty
         this.gameElements.forEach(elm => elm.innerText = '');
+        this.gameElements.forEach(elm => elm.classList.remove('filled'));
+        this.updateGameStatus(this.currentTurn === X ? 1 : 2);
 
-        this.gameStatusElement.innerText = 'X Turn';
-        this.currentTurn = 'X';
-        this.gameIsStopped = false;
+        this.gameBoardDiv.classList.remove('game-over')
+    }
+
+    resetHistory() {
+        this.gameHistoryElement.innerHTML = '';
     }
 
     // Function to perform on every cell click
@@ -120,10 +133,10 @@ class GameBoard {
         if (gameElement.innerText === '') {
             this.clickSound.play();
             gameElement.innerText = this.currentTurn;
+            gameElement.classList.add('filled')
 
             this.updateGameBoard(elementId);
             this.updateGameBoardForWinOrDrawCondition();
-            this.switchTurn();
         }
     }
 
@@ -136,9 +149,7 @@ class GameBoard {
     updateGameBoard(elementId) {
         const row = elementId[1];
         const column = elementId[2];
-        if (this.gameBoard[row][column] === elementId) {
-            this.gameBoard[row][column] = this.currentTurn;
-        }
+        this.gameBoard[row][column] = this.currentTurn;
     }
 
     // check game board after every turn
@@ -165,22 +176,24 @@ class GameBoard {
             this.updateGameStatus(5);
             this.calculateDrawCount();
             this.updateGameHistory('');
-        }
-        else {
-            if (this.currentTurn === X) {// next turn
+        } else {// continue
+            if (this.currentTurn === X) {
                 this.updateGameStatus(2);
             }
             else {
                 this.updateGameStatus(1);
             }
+            this.switchTurn();
         }
     }
-    //
+    
+    // updates the game history by adding new li element after every game is over
     updateGameHistory(history) {
         this.gameHistory.push(history);
         const li = document.createElement('li');
         li.innerText = `Game ${this.gameHistory.length}: ${history} ${!history ? 'Draw' : 'Won'}`;
         this.gameHistoryElement.appendChild(li);
+        this.gameHistoryElement.insertBefore(li, this.gameHistoryElement.childNodes[0]);
     }
 
     // calculates score when player X wins
@@ -245,25 +258,19 @@ class GameBoard {
     // updates token to stop the game after checking for winning or draw condition
     stopGame() {
         this.gameIsStopped = true;
+        this.gameBoardDiv.classList.add('game-over');
     }
 
     //resets the whole game 
     onResetGame() {
         this.initializeGameData();
         this.setInitialCounters();
-        this.gameHistoryElement.innerHTML = '';
-
+        this.resetHistory();
     }
 
     //restarts the game without affetcing the score and game history 
     onRestartGame() {
-
-        this.gameBoard = [
-            ['c00', 'c01', 'c02'],
-            ['c10', 'c11', 'c12'],
-            ['c20', 'c21', 'c22']
-        ];
-
+        this.resetGameData();
         this.setInitialCounters();
     }
 }

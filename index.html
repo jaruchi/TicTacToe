@@ -6,31 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
-    <title>TicTacToe</title>
+    <title>Tic Tac Toe</title>
 </head>
 
 <body>
-        <audio id="soundClick" src="docs/Click.mp3" ></audio>
-        <audio id="soundWin" src="docs/win.mp3" ></audio>
-        <audio id="soundDraw" src="docs/draw.mp3" ></audio>
+    <audio id="soundClick" src="docs/Click.mp3"></audio>
+    <audio id="soundWin" src="docs/win.mp3"></audio>
+    <audio id="soundDraw" src="docs/draw.mp3"></audio>
 
     <header>
         <h1>Tic-Tac-Toe</h1>
     </header>
-            <div class="buttons">
-                <div id="reset" class="reset">
-                    <button type='submit' class="button">Reset Game</button>
-                </div>
-                <div id="restart"  class="restart">
-                    <button type='submit' class="button">Restart Game</button>
-                </div>
-            </div>
+    <div class="buttons">
+        <div id="reset" class="reset">
+            <button type='submit' class="button">Reset Game</button>
+        </div>
+        <div id="restart" class="restart">
+            <button type='submit' class="button">Restart Game</button>
+        </div>
+    </div>
     <div id="game-status" class="gamestatus"></div>
 
     <main>
         <aside>
             <div id="player1" class="player1-data">Player 1 (X)
-                <div id="player1score" class="player1-score">Score<div id="scoreX"></div></div>
+                <div id="player1score" class="player1-score">Score<div id="scoreX"></div>
+                </div>
             </div>
 
             <div id="draw" class="draw-data">Draw
@@ -38,12 +39,13 @@
             </div>
 
             <div id="player2" class="player2-data">Player 2 (O)
-                <div id="player2score" class="player2-score">Score<div id="scoreO"></div></div>
+                <div id="player2score" class="player2-score">Score<div id="scoreO"></div>
+                </div>
             </div>
         </aside>
         <section>
             <div id="game-board" class="gameboard">
-                
+
                 <div id="game-container" class="gamecontainer">
                     <div id="row1" class="game-row">
                         <div id="c00" class="game-cell">
@@ -90,7 +92,7 @@
                 </div>
 
             </div>
-            
+
         </section>
         <aside>
             <div id="game-history" class="gamehistory">

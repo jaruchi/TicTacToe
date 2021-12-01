@@ -62,7 +62,15 @@ aside {
     display: flex;
     justify-content: center;
 }
- 
+
+.gameboard .game-over{
+    background-color: #dcdcdc;
+}
+
+.game-over .game-cell:hover>.game-element{
+    background-color: transparent !important;
+}
+
 .game-row:first-child>.game-cell{
     border-top-width: 0px;
 } 
@@ -100,7 +108,9 @@ aside {
     color: #d268a8;
 
 }
-
+.game-element.filled{
+    background-color: transparent !important;
+}
 /*.game-cell:hover .game-element{
     background-color:rgb(192, 196, 255);
 } */
