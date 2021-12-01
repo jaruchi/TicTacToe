@@ -15,7 +15,7 @@ There is a heading on the page with a 3X3 game board.
 The game board consists of a game container which has 3 game rows. Every game row has a game cell which will hold the game elements. Game element is the place where X or O will be displayed.
 ![Intial Game Board Design](/docs/initialgameboarddesign.png)
 
-### Step II: Game Design with possible elements
+### Step II: Game Design with possible elements(Version 1)
 
 Added semantics like header, main, footer in HTML. Manipulated CSS for different layouts using flex property.
 ![Game Page Layout](/docs/layout.png)
@@ -47,21 +47,26 @@ updateGameBoard:
 ### Pseudocode For updateGameBoardForWinOrDrawCondition
 
 ```
-  setGameStatus:
+  updateGameBoardForWinOrDrawCondition:
     for every click check:
         if currentPlayer Won
             then stopGame
                 if currentTurn==='X'
                     updateGameStatus for X
                     calculateScore for X
+                    updateGameHistory for X
                 else
                     updateGameStatus for O
                     calculateScore for O
+                    updateGameHistory for O
+
         ElseIf check for isAllCellFilled
                 then stopGame
                 updateGameStatus for Draw
+                updateGameHistory for Draw
+
         Else
-            check for CurrentTurn and updatestatus for next player turn
+            continue for next Turn and updatestatus for next player's turn
 ```
 
 ### Pseudocode For isAllCellFilled
@@ -77,7 +82,7 @@ updateGameBoard:
 ```
 Iterate the const array defined for 8 winning conditions
   for every index
-      get the values for those indexes in the gameBoard
+      get the positions from winningConditions array for those indexes in the gameBoard
       check if all are Equal
       if yes return true
       else return false
@@ -92,6 +97,17 @@ Iterate the const array defined for 8 winning conditions
   set currentTurn to X
 
 ```
+
+### Solution for Winner
+1. There are 8 criterion to win this game. I took an array winningConditions[] with 8 possible situations, which holds the positions where a player can win. 
+2. There is also an array for the cells where user clicks are captured, gamBoard[]
+3. Whenever a click happens on the gameboard, it is checked for the winning criterion.
+4. Positions from the winningConditions[] are stored in another array, winCon[]
+5. From that array every position is matched to the value stored in the gameBoard[]
+6. if all the positions has same value then it's a win 
+
+
+
 ### User Stories Covered
 
 - As a user, I should be able to start a new tic tac toe game

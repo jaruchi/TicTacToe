@@ -3,7 +3,7 @@ const X = 'X';
 const O = 'O';
 
 
-//Winning Conditions Array
+//Winning Conditions Array represents the position where a player can win
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -49,8 +49,6 @@ class GameBoard {
 
         // to track every game
         this.gameHistory = [];
-
-
     }
 
     resetGameData() {
@@ -186,13 +184,41 @@ class GameBoard {
             this.switchTurn();
         }
     }
-    
+
+     // checks if current player is a winner by working on already set winning conditions
+     isCurrentPlayerWon() {
+        for (let index = 0; index < winningConditions.length; index++) {
+            const winCon = winningConditions[index];
+            const result = this.isAllCellsFilledWithSameValue(winCon);
+            if (result) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // compares gameboard for winning conditions
+    // if gameboard matches to any of the winning condition returns true otherwise false
+    isAllCellsFilledWithSameValue(winCon) {
+        const gameBoardFlat = this.gameBoard.flat();
+        const position1 = gameBoardFlat[winCon[0]];
+        const position2 = gameBoardFlat[winCon[1]];
+        const position3 = gameBoardFlat[winCon[2]];
+        if (position1 === position2 && position1 === position3) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // updates the game history by adding new li element after every game is over
+    // history ==> ['x','o',''] ==> Game 1:X Won  or Game 2:Draw
     updateGameHistory(history) {
         this.gameHistory.push(history);
         const li = document.createElement('li');
         li.innerText = `Game ${this.gameHistory.length}: ${history} ${!history ? 'Draw' : 'Won'}`;
-        this.gameHistoryElement.appendChild(li);
+  
         this.gameHistoryElement.insertBefore(li, this.gameHistoryElement.childNodes[0]);
     }
 
@@ -213,33 +239,7 @@ class GameBoard {
         this.playersScore.drawCount++;
         this.drawCountElement.innerText = this.playersScore.drawCount;
     }
-
-    // checks if current player is a winner by working on already set winning conditions
-    isCurrentPlayerWon() {
-        for (let index = 0; index < winningConditions.length; index++) {
-            const winCon = winningConditions[index];
-            const result = this.isAllCellsFilledWithSameValue(winCon);
-            if (result) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // compares gameboard for winning conditions
-    // if gameboard matches to any of the winning condition returns true otherwise false
-    isAllCellsFilledWithSameValue(winCon) {
-        const gameBoardFlat = this.gameBoard.flat();
-        const a = gameBoardFlat[winCon[0]];
-        const b = gameBoardFlat[winCon[1]];
-        const c = gameBoardFlat[winCon[2]];
-        if (a === b && a === c) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+  
 
     // update the game status after every move
     updateGameStatus(statusState) {
